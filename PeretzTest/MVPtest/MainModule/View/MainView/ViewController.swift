@@ -17,9 +17,6 @@ class ViewController: UIViewController {
         self.navigationController?.title = "Peretz"
         self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "arrow-left")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "arrow-left")
-        // Do any additional setup after loading the view.
-        print("this is test for git")
-        print("Это третий коммит по идее")
     }
     
     //MARK: - IBActions

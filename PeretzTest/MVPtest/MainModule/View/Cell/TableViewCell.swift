@@ -36,12 +36,8 @@ class TableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         selectionStyle = .none
-        
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        minusButtonOutlet.isHidden = true
-//        countLabel.isHidden = true
     }
     
     func configurate(with model: Model, count: Int?, delegate: MenuTableViewCellDelegate) {
@@ -63,52 +59,34 @@ class TableViewCell: UITableViewCell {
     
     //MARK: - IBActions
     @IBAction func minusButton(_ sender: Any) {
-//        if countValue >= 1 {
-//            countValue -= 1
-//            countLabel.text = String(countValue)
-//
-//        } else { return }
-//
-//        if countValue == 0 {
-//            minusButtonOutlet.isHidden = true
-//            countLabel.isHidden = true
-//        }
+        
         guard let order = self.order else { return }
+        
         cartManager.minusDishes(order.id)
         count -= 1
         countLabel.text = String(count)
+        
         if count == 0 {
             minusButtonOutlet.isHidden = true
             countLabel.isHidden = true
         }
+        
         delegate.orderDeleted(order)
-        
-        
     }
     
     @IBAction func plusButton(_ sender: Any) {
-//        if countValue == 0 {
-//            minusButtonOutlet.isHidden = false
-//            countLabel.isHidden = false
-//        }
-//
-//        if countValue <= 98 {
-//            countValue += 1
-//            countLabel.text = String(countValue)
-//
-//        } else { return }
-//
         
         guard let order = self.order else { return }
+        
         cartManager.plusDishes(order.id)
         if count == 0 {
             minusButtonOutlet.isHidden = false
             countLabel.isHidden = false
         }
+        
         count += 1
         countLabel.text = String(count)
         delegate.orderAdded(order)
-        
         
     }
 }

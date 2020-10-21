@@ -30,12 +30,8 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         presenter = MainTableViewPresenter(view: self)
-//        
-//        self.tabBarController?.title = "TEST"
         self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "arrow-left")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "arrow-left")
-        //        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        //        tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     
@@ -123,19 +119,13 @@ extension TableViewController: TableViewProtocol {
 }
 
 extension TableViewController: MenuTableViewCellDelegate {
+    
     func orderAdded(_ order: Model) {
-        
         guard cartManager.dishesIds.count < 2 else { return }
-//        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
-//            self.view.layoutIfNeeded()
-//        })
     }
     
     func orderDeleted(_ order: Model) {
         guard cartManager.dishesIds.count == 0 else { return }
-//        UIView.animate(withDuration: 0.4, animations: {
-//            self.view.layoutIfNeeded()
-//        })
     }
     
     
